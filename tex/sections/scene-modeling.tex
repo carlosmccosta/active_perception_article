@@ -1,33 +1,11 @@
 \section{\uppercase{3D scene modeling}}\label{sec:modeling}
 
-\noindent For being able to compute the surface coverage of a given set of target objects that a given constellation of sensors can observe, it is necessary to model the 3D geometry of the scene objects. Moreover, the 3D sensors must have a realistic data acquisition model that is representative of the real sensors. As such, the development of the proposed system started with the 3D modeling of the scene geometry, namely the environment objects and sensors 3D models using \gls{cad} systems. Later on, several types of depth sensors were modeled within the Gazebo simulator\footnote{\url{http://gazebosim.org}} in order to perform accurate 3D rendering of the scene and generate representative sensor data taking into consideration the specific characteristics of each type of sensor (such as image resolution, field of view and depth range) while also accounting for the occlusions that other objects in the environment might cause in relation to the target models that each sensor is trying to observe from its given view point. The next sections present in detail the sensor and environment modeling along with how these sensors can be deployed in the simulation environment within plausible regions of interest that take into account where the sensors can be placed in the real environment.
+\noindent For being able to compute the surface coverage of a given set of simulated target objects that a given constellation of sensors can observe, it is necessary to model the 3D geometry of the scene objects. Moreover, the depth sensors must have a realistic data acquisition model that is representative of the real sensors. As such, the development of the proposed system started with the 3D modeling of the scene geometry, namely the environment objects and sensors 3D models using \gls{cad} systems. Later on, several types of depth sensors were modeled within the Gazebo simulator\footnote{\url{http://gazebosim.org}} in order to perform accurate 3D rendering of the scene and generate representative sensor data taking into consideration the specific characteristics of each type of sensor (such as image resolution, field of view and depth range) while also accounting for the occlusions that other objects in the environment might cause in relation to the target models that each sensor is trying to observe from its given view point. The next sections will present the modeling of the simulation worlds along with how the depth sensors were deployed within plausible regions of interest that take into account where the sensors can be placed in the real environment.
 
 
 \subsection{\uppercase{Environment modeling}}
 
-Implementation text.
-
-\begin{itemize}
-	\item Modeling of 4 different test environments
-	\begin{itemize}
-		\item 1 for active perception, with hand occlusions
-		\item 1 for bin picking with minimal occlusions
-		\item 1 for bin picking with significant occlusions
-		\item 1 for multiple object bin picking with several occlusions
-	\end{itemize}
-	\item Modeling of 3 bin picking objects
-	\begin{itemize}
-		\item Starter motor (target object for bin picking)
-		\item Alternator (for bin picking occlusions)
-		\item Differential gearbox (for bin picking occlusions)
-	\end{itemize}
-	\item Modeling of 2 support objects
-	\begin{itemize}
-		\item Trolley with shelves
-		\item Large stacking box
-	\end{itemize}
-	\item Target objects use a special surface material that ignores light effects (such as light shading and shadows) and have a specific color (pure green) that will be used for sensor data segmentation. It was used .stl CAD models for 3D rendering and .ply point clouds for 3D data processing
-\end{itemize}
+For testing active perception and bin picking operations it was modeled 4 different simulation worlds. Within these environments it was deployed one or several target objects (which was a starter motor \gls{cad} model with a unique green surface material that had no light effects, such as shading and shadows). The first environment (shown in \cref{fig:active-perception-environment}), focused on an active perception task in which a starter motor was placed on top of a trolley and was being occluded by a human hand starting to grasp it. The goal of this environment was to simulate an active perception task, in which we may need to actively move a sensor within the environment to be able to keep tracking the pose of a given object (such is the case of objects that are being manipulated by humans in which the hands are creating significant occlusions and a static sensor constellation may not be able to observe enough surface geometry to be able to perform pose tracking with accuracy). On the other 3 worlds, the main goal was similar but applied to bin picking operations. In this use case a static overhead camera can provide a rough estimation of the target objects and then based on the level of object recognition confidence and how significant are the occlusions, we may need to move a sensor attached to a robotic arm to several positions in order to gather further sensor data to increase the object recognition confidence and its pose estimation accuracy. In the first bin picking world, the starter motor was inside a large staking box together with an alternator and a gearbox (displayed in \cref{fig:bin-picking-environment}). The second bin picking environment is a variation of the first in which it was added 3 more differential gearboxes into the stacking box in order to significantly increase the occlusion of the target object (seen in \cref{fig:bin-picking-with-occlusions-environment}). Finally, the last bin picking environment (seen in \cref{fig:multiple-bin-picking-with-occlusions-environment}) is another variation of the first environment in which it was added 3 more target objects (one on top of the trolley and two on the its middle shelves).
 
 \begin{figure}
 	\centering
@@ -36,6 +14,7 @@ Implementation text.
 	\includegraphics[height=.126\textwidth]{environments/active-perception/rviz-back-left}
 	\includegraphics[height=.126\textwidth]{environments/active-perception/rviz-back-right}
 	\caption{Active perception environment renderings from Gazebo with target objects in green (top images) and associated CAD model point clouds displayed as blue spheres in Rviz (bottom images)}
+	\label{fig:active-perception-environment}
 \end{figure}
 
 \begin{figure}
@@ -45,6 +24,7 @@ Implementation text.
 	\includegraphics[height=.126\textwidth]{environments/bin-picking/rviz-front}
 	\includegraphics[height=.126\textwidth]{environments/bin-picking/rviz-top}
 	\caption{Bin picking environment renderings from Gazebo with target objects in green (top images) and associated CAD model point clouds displayed as blue spheres in Rviz (bottom images)}
+	\label{fig:bin-picking-environment}
 \end{figure}
 
 \begin{figure}
@@ -54,6 +34,7 @@ Implementation text.
 	\includegraphics[height=.126\textwidth]{environments/bin-picking-with-occlusions/rviz-front}
 	\includegraphics[height=.126\textwidth]{environments/bin-picking-with-occlusions/rviz-top}
 	\caption{Bin picking with occlusions environment renderings from Gazebo with target objects in green (top images) and associated CAD model point clouds displayed as blue spheres in Rviz (bottom images)}
+	\label{fig:bin-picking-with-occlusions-environment}
 \end{figure}
 
 \begin{figure}
@@ -63,6 +44,7 @@ Implementation text.
 	\includegraphics[height=.126\textwidth]{environments/multiple-bin-picking-with-occlusions/rviz-front-corner}
 	\includegraphics[height=.126\textwidth]{environments/multiple-bin-picking-with-occlusions/rviz-top}
 	\caption{Multiple bin picking with occlusions environment renderings from Gazebo with target objects in green (top images) and associated CAD model point clouds displayed as blue spheres in Rviz (bottom images)}
+	\label{fig:multiple-bin-picking-with-occlusions-environment}
 \end{figure}
 
 
