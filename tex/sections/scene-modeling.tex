@@ -50,36 +50,13 @@ For testing active perception and bin picking operations it was modeled 4 differ
 
 \subsection{\uppercase{Sensors modeling}}
 
-It was modeled 8 different types of depth sensors, 6 were structured light sensors and two were stereo vision systems.
-
-\begin{itemize}
-	\item Structured light sensors
-	\begin{itemize}
-		\item Asus Xtion Pro Live
-		\item Ensenso N35
-		\item Intel RealSense SR300
-		\item Kinect XBox 360
-		\item Kinect XBox One
-		\item Orbbec Astra
-	\end{itemize}
-	\item Stereo sensors
-	\begin{itemize}
-		\item MultiSense S7
-		\item ZED stereo camera
-	\end{itemize}
-\end{itemize}
-Pinhole camera model coupled with OpenGL color rendering and depth buffer allows to specify the sensors:
-\begin{itemize}
-	\item Resolution (width and height in pixels)
-	\item Field of view (vertical and horizontal FOV in radians)
-	\item Minimum and maximum measurement range (near and far z-buffer clipping planes in meters)
-	\item Sensor acquisition rate (number of image acquisitions per second in hertz)
-\end{itemize}
+Over the years it was developed a wide range of technologies for performing environment sensing. From the passive image sensors to the active systems that probe the environment using projected patterns, lasers or \gls{tof} devices. Given that the goal of the proposed system was to perform active perception or environment monitoring, it was modeled 8 different types of depth sensors (shown in \cref{fig:sensors}) which relied on 3 types of environment sensing technologies. One of them was the Kinect XBox One \gls{tof} device, 5 were structured light sensors (such as the Asus Xtion Pro Live, the Ensenso N35, the Intel RealSense SR300, the Kinect XBox 360 and the Orbbec Astra) and 2 were stereo vision systems (namely the MultiSense S7 and the ZED stereo camera). Each of these depth sensors can be modeled using the pinhole camera model, which allows to specify the main unique characteristics of each sensor, such as the depth image resolution (width and height in pixels), its \gls{fov} (horizontal and vertical in radians) and the range in which the sensor can retrieve valid measurements (minimum and maximum in meters). Moreover, since this camera model is implemented in most 3D rendering engines and optimized in todays powerful \glspl{gpu}, the sensor data generation can be performed very fast and efficiently using 3D rendering \glspl{api} such as the \gls{opengl}. This is the case of the Gazebo simulator, that uses the Ogre3D\footnote{\url{http://www.ogre3d.org}} rendering engine which in turn relies on \gls{opengl}. Besides camera modeling, Gazebo also allows to simulate the sensor acquisition rate (specified as the number of depth images generated per second), which is usually higher on structured light sensors and lower on stereo vision systems.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=.47\textwidth]{sensors/sensors-gray-with-links}
 	\caption{Sensors 3D CAD models with the display of the depth image coordinate frames using the ROS convention of x-y-z -> forward-left-up (horizontally from top left to bottom right: Kinect XBox 360, Asus Xtion Pro Live, Ensenso N35, Kinect XBox One, Orbbec Astra, MultiSense S7, Intel RealSense SR300, ZED stereo camera)}
+	\label{fig:sensors}
 \end{figure}
 
 
