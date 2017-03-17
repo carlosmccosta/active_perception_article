@@ -1,5 +1,22 @@
 \section{\uppercase{Introduction}}\label{sec:introduction}
 
-\noindent 3D object recognition is a challenging task that may require active perception of the environment for gathering additional sensor information when the level of confidence in the perception analysis is not enough
+%Problem description
+%Relevance of work / motivation
+%Usages
+%	multiple sensor deployment for:
+%		active perception
+%		bin picking
+%Implementation highlights
+%	modelling of 4 environments and 8 sensor types within Gazebo
+%	sensor deployment within rois in environments with high occlusion of target objects
+%	generation of the segmented sensor point clouds
+%		color segmentation
+%		3d point cloud generation from depth image using the pin hole model
+%		voxel grid filtering for regular space partition and fast coverage estimation
+%	quick estimation of the best sensor
+%	ransac approach to estimate a constellation of sensors
+%Difficulties that it overcomes
+%Main results
+%Paper outline
 
-Simulating sensor 3D depth data from a set of representative environments can help decide the type, number and disposition of sensors that maximize the target objects observable surface area
+\noindent The estimation of the optimal sensor constellation for maximizing the observable surface area of a given set of target objects is a challenging and combinatorial explosive problem, that has a wide range of applications for perception tasks, such as object tracking and bin picking, that may require active perception of the environment for gathering additional sensor information when the level of confidence in the perception analysis is not enough. Simulating sensor 3D depth data from a set of representative environments can help decide the type, number and disposition of sensors that maximize the target objects observable surface area. Moreover, it can guide a movable sensor within the environment for avoiding dynamic occlusions while keep tracking a given set of target objects.
