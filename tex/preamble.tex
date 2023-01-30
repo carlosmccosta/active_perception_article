@@ -1,4 +1,4 @@
-\documentclass[a4paper,twoside]{article}
+\documentclass[10pt,final,conference,letterpaper,oneside,twocolumn]{IEEEtran}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -14,8 +14,8 @@
 \usepackage{tabu}
 \usepackage{rotating}
 \usepackage{array}
-\usepackage{multicol}
-\usepackage{multirow}
+%\usepackage{multicol}
+%\usepackage{multirow}
 \usepackage{url}
 \usepackage{footnote}
 \usepackage{footmisc}
@@ -26,14 +26,24 @@
 \usepackage[noend]{algpseudocode}
 \usepackage[nonumberlist,acronym,nomain,nowarn]{glossaries}
 \glsdisablehyper
+
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+
+\ifCLASSOPTIONcompsoc
+\usepackage[nocompress]{cite}
+\else
+\usepackage{cite}
+\fi
+
+%\ifCLASSOPTIONcompsoc
+%\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+
 \makeglossaries
-
-\usepackage{pslatex}
-\usepackage{apalike}
-\usepackage{SCITEPRESS}
-
-\subfigtopskip=0pt
-\subfigcapskip=0pt
-\subfigbottomskip=0pt
 
 \overfullrule=3mm

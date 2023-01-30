@@ -20,7 +20,7 @@ bibliography() {
 	echo "------------------------------------------------"
 	echo ">>>>> Building bibliography with bibtex"
 	echo "------------------------------------------------"
-	sh -c "cd build && bibtex master.aux"
+	sh -c "bibtex build/master.aux"
 }
 
 
@@ -29,7 +29,7 @@ glossaries() {
 	echo "------------------------------------------------"
 	echo ">>>>> Making glossaries"
 	echo "------------------------------------------------"
-	sh -c "cd build && makeglossaries master"
+	sh -c "makeglossaries -d build master"
 }
 
 

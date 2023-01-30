@@ -9,7 +9,7 @@ echo "##########################################################################
 rm -rf ./build
 mkdir build
 
-ln -s "`pwd`/references.bib" "`pwd`/build/references.bib"
+#ln -s "`pwd`/references.bib" "`pwd`/build/references.bib"
 
 
 echo "\n\n"
