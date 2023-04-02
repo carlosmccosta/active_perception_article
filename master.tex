@@ -5,15 +5,25 @@
 \input{tex/preamble}
 \input{tex/glossaries}
 
+\usepackage[misc,geometry]{ifsym}
+\def\orcidID#1{\href{https://orcid.org/#1}{\includegraphics[width=8pt]{orcid.pdf}}}
 
 \begin{document}
+
+\IEEEpubid{\makebox[\columnwidth]{979-8-3503-0121-2/23/\$31.00~\copyright{}2023 IEEE\hfill}\hspace{\columnsep}\makebox[\columnwidth]{}}
 
 
 %---------------------------------------------------------------------------------------------------
 % Top matter
 %---------------------------------------------------------------------------------------------------
 
-\title{Sensor placement optimization using random sample consensus for best views estimation}
+\title{Sensor Placement Optimization using Random Sample Consensus for Best Views Estimation}
+
+\author{\IEEEauthorblockN{Carlos M. Costa$^{1,2(\textrm{\Letter})}$\orcidID{0000-0001-8453-4031}, Germano Veiga$^{1}$\orcidID{0000-0003-3044-6938}, Armando Sousa$^{1,2}$\orcidID{0000-0002-0317-4714}, Ulrike Thomas$^{3}$\orcidID{0000-0003-3211-4208} and Luís Rocha$^{1}$\orcidID{0000-0002-8680-4290}}%
+\IEEEauthorblockA{$^{1}$Centre for Robotics in Industry and Intelligent Systems of INESC TEC, Portugal\\\textit{\{carlos.m.costa, germano.veiga, luis.f.rocha\}@inesctec.pt}}%
+\IEEEauthorblockA{$^{2}$Faculty of Engineering of the University of Porto, Portugal\\\textit{asousa@fe.up.pt}}%
+\IEEEauthorblockA{$^{3}$Robotics and Human Machine Interaction Laboratory at the Technical University of Chemnitz, Germany\\\textit{ulrike.thomas@etit.tu-chemnitz.de}}%
+}
 
 %\author{\IEEEauthorblockN{Authors removed for double blind review}
 %	\IEEEauthorblockA{Blind research institute}
@@ -35,12 +45,12 @@
 %---------------------------------------------------------------------------------------------------
 
 \input{tex/sections/introduction}
-\input{tex/sections/related-work}
+%\input{tex/sections/related-work}
 \input{tex/sections/scene-modeling}
 \input{tex/sections/best-views-estimation}
 \input{tex/sections/experimental-evaluation}
 \input{tex/sections/conclusions}
-%\input{tex/sections/acknowledgments}
+\input{tex/sections/acknowledgments}
 
 
 
